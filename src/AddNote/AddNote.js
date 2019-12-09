@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import config from '../config';
 import ApiContext from '../ApiContext'
 import './AddNote.css'
 
@@ -6,7 +7,7 @@ export default class AddNote extends React.Component {
   static contextType = ApiContext
   addNewNote = note => {
     console.log(note)
-    fetch('http://localhost:9090/notes', {
+    fetch(`${config.API_ENDPOINT}/notes`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

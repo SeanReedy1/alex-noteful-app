@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import config from '../config';
 import ApiContext from '../ApiContext';
 import './AddFolder.css'
 import PropTypes from 'prop-types'
@@ -7,7 +8,7 @@ export default class AddFolder extends Component {
   static contextType = ApiContext;
 
   addFolder = (name) => {
-    fetch(`http://localhost:9090/folders/`, {
+    fetch(`${config.API_ENDPOINT}/folders/`, {
         method: 'POST',
         headers: {
           'content-type': 'application/json',
