@@ -41,6 +41,7 @@ export default class NoteListMain extends React.Component {
                 id={note.id}
                 name={note.name}
                 modified={note.modified}
+                onDeleteNote={this.onDeleteNote}
               />
             </li>
           )}

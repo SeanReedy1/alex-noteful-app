@@ -6,7 +6,9 @@ import './AddNote.css'
 export default class AddNote extends React.Component {
   static contextType = ApiContext
   addNewNote = note => {
-    console.log(note)
+    
+    note.modified = new Date(note.modified);
+
     fetch(`${config.API_ENDPOINT}/notes`, {
       method: 'POST',
       headers: {
@@ -33,9 +35,10 @@ export default class AddNote extends React.Component {
     const newNote = {
       name: e.target.name.value,
       content: e.target.content.value,
-      folderId: e.target.folders.value,
+      folder_id: e.target.folders.value,
       modified: new Date(),
     }
+    console.log(newNote);
     this.addNewNote(newNote)
     this.props.history.push('/');
   }
@@ -53,6 +56,7 @@ export default class AddNote extends React.Component {
   }
 
   render() {
+    console.log(this.context);
     return (
       <>
         <header>

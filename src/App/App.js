@@ -26,7 +26,7 @@ class App extends Component {
         touched: false,
         value: '',
       },
-      folderId: {
+      folder_id: {
         touched: false,
         value: '',
       },
@@ -90,10 +90,13 @@ class App extends Component {
       notes: [...this.state.notes, note],
     })
   }
+
   handleDeleteNote = noteId => {
+    console.log('Firing!')
     this.setState({
       notes: this.state.notes.filter(note => note.id !== noteId),
     })
+
   }
 
   renderNavRoutes() {
@@ -123,6 +126,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state);
     const value = {
       notes: this.state.notes,
       folders: this.state.folders,
